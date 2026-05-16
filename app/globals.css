@@ -127,3 +127,9 @@
     @apply font-sans;
     }
 }
+
+/* Gentle vertical float for the landing collage cards. */
+@keyframes drift {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(6px); }
+}

@@ -1,5 +1,6 @@
 import { ActivityCollage } from '@/components/activity-collage';
 import { CyclingTagline } from '@/components/cycling-tagline';
+import { SiteFooter } from '@/components/site-footer';
 import { StoreButtons } from '@/components/store-buttons';
 import { WaitlistForm } from '@/components/waitlist-form';
 import { LAUNCH_MODE } from '@/lib/launch';
@@ -38,6 +39,8 @@ export default function Page() {
           {LAUNCH_MODE === 'waitlist' ? <WaitlistForm /> : <StoreButtons />}
         </div>
       </div>
+
+      <SiteFooter floating />
     </main>
   );
 }

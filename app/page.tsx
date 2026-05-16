@@ -3,6 +3,7 @@ import { CyclingTagline } from '@/components/cycling-tagline';
 import { StoreButtons } from '@/components/store-buttons';
 import { WaitlistForm } from '@/components/waitlist-form';
 import { LAUNCH_MODE } from '@/lib/launch';
+import Image from 'next/image';
 
 export default function Page() {
   return (
@@ -21,8 +22,16 @@ export default function Page() {
       />
 
       <div className="relative z-10 flex flex-col items-center gap-6 text-center">
-        <h1 className="text-6xl font-bold tracking-tight sm:text-8xl">
-          forsure
+        <h1>
+          <Image
+            src="/wordmark.png"
+            alt="forsure"
+            width={1800}
+            height={500}
+            priority
+            draggable={false}
+            className="h-16 w-auto select-none sm:h-24"
+          />
         </h1>
         <CyclingTagline />
         <div className="mt-2 flex justify-center">

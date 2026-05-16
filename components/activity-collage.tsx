@@ -99,7 +99,6 @@ function Card({ card }: { card: CollageCard }) {
       >
         <div className="bg-card/90 border-border w-[15rem] rounded-2xl border p-4 shadow-xl backdrop-blur-sm">
           <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm leading-snug">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={avatarUrl(card.user)}
               alt=""

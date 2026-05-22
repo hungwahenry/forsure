@@ -4,11 +4,34 @@ import { Geist_Mono, Figtree } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import { env } from "@/lib/env";
+
+const TITLE = "forsure — find someone to do anything";
+const DESCRIPTION =
+  "forsure is a local hangouts app — find someone to grab coffee, play tennis, or do anything, nearby and right now.";
 
 export const metadata: Metadata = {
-  title: "forsure — find someone to do anything",
-  description:
-    "forsure is a local hangouts app — find someone to grab coffee, play tennis, or do anything, nearby and right now.",
+  metadataBase: new URL(env.SITE_URL),
+  applicationName: "forsure",
+  title: {
+    default: TITLE,
+    template: "%s — forsure",
+  },
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "forsure",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: env.SITE_URL,
+    images: [{ url: "/wordmark.png", width: 1800, height: 500, alt: "forsure" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/wordmark.png"],
+  },
 }
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'})

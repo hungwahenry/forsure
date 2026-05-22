@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: env.SITE_URL,
-    images: [{ url: "/wordmark.png", width: 1800, height: 500, alt: "forsure" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "forsure" }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/wordmark.png"],
+    images: ["/og-image.png"],
   },
 }
 

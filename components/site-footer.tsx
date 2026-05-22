@@ -1,15 +1,9 @@
 import Link from 'next/link';
+import { getFooterLinks } from '@/lib/cms/server';
 
-const LINKS = [
-  { href: '/privacy', label: 'Privacy' },
-  { href: '/terms', label: 'Terms' },
-  { href: '/guidelines', label: 'Community Guidelines' },
-  { href: '/child-safety', label: 'Child Safety' },
-  { href: '/account-deletion', label: 'Delete Account' },
-  { href: '/support', label: 'Support' },
-];
+export async function SiteFooter({ floating = false }: { floating?: boolean }) {
+  const links = await getFooterLinks();
 
-export function SiteFooter({ floating = false }: { floating?: boolean }) {
   return (
     <footer
       className={
@@ -19,13 +13,13 @@ export function SiteFooter({ floating = false }: { floating?: boolean }) {
       }
     >
       <div className="text-muted-foreground mx-auto flex w-full max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-1.5 px-6 py-6 text-sm">
-        {LINKS.map((link) => (
+        {links.map((link) => (
           <Link
-            key={link.href}
-            href={link.href}
+            key={link.slug}
+            href={`/p/${link.slug}`}
             className="hover:text-foreground transition-colors"
           >
-            {link.label}
+            {link.title}
           </Link>
         ))}
         <span className="text-muted-foreground/70 w-full text-center text-xs sm:w-auto">

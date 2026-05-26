@@ -8,7 +8,7 @@ export async function SiteFooter({ floating = false }: { floating?: boolean }) {
     <footer
       className={
         floating
-          ? 'absolute inset-x-0 bottom-0 z-10'
+          ? 'mt-4 sm:absolute sm:inset-x-0 sm:bottom-0 sm:z-10 sm:mt-0'
           : 'border-border/60 mt-8 border-t'
       }
     >

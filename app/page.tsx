@@ -22,7 +22,7 @@ export default function Page() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-6 text-center">
+      <div className="z-10 flex flex-col items-center gap-6 text-center">
         <h1>
           <Image
             src="/wordmark.png"
@@ -38,9 +38,8 @@ export default function Page() {
         <div className="mt-2 flex justify-center">
           {LAUNCH_MODE === 'waitlist' ? <WaitlistForm /> : <StoreButtons />}
         </div>
+        <SiteFooter floating />
       </div>
-
-      <SiteFooter floating />
     </main>
   );
 }

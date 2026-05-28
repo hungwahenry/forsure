@@ -5,18 +5,13 @@ interface CollageCard {
   emoji: string;
   activity: string;
   place: string;
-  /** Absolute position + tilt. */
   style: CSSProperties;
-  /** Drift timing so cards don't move in lockstep. */
   duration: number;
   delay: number;
-  /** Hidden on small screens to keep the phone viewport uncluttered. */
   desktopOnly?: boolean;
 }
 
-// Two flanking columns of 6 — the centre stays clear for the headline.
 const CARDS: CollageCard[] = [
-  // Left column.
   {
     user: 'maya', emoji: '☕', activity: 'grab coffee', place: 'blue bottle',
     style: { top: '3%', left: '-4%', transform: 'rotate(-7deg)' },
@@ -30,7 +25,7 @@ const CARDS: CollageCard[] = [
   {
     user: 'sam', emoji: '🍜', activity: 'get ramen', place: 'ippudo',
     style: { top: '35%', left: '-3%', transform: 'rotate(6deg)' },
-    duration: 7.8, delay: 1.1,
+    duration: 7.8, delay: 1.1, desktopOnly: true,
   },
   {
     user: 'leo', emoji: '🌆', activity: 'see the sunset', place: 'the pier',
@@ -47,7 +42,6 @@ const CARDS: CollageCard[] = [
     style: { top: '84%', left: '0%', transform: 'rotate(-6deg)' },
     duration: 7.5, delay: 0.5,
   },
-  // Right column.
   {
     user: 'theo', emoji: '🎾', activity: 'play tennis', place: 'the courts',
     style: { top: '9%', right: '-4%', transform: 'rotate(7deg)' },
@@ -61,7 +55,7 @@ const CARDS: CollageCard[] = [
   {
     user: 'noor', emoji: '🎨', activity: 'try pottery', place: 'the studio',
     style: { top: '42%', right: '-3%', transform: 'rotate(5deg)' },
-    duration: 7.6, delay: 0.2,
+    duration: 7.6, delay: 0.2, desktopOnly: true,
   },
   {
     user: 'kai', emoji: '🎶', activity: 'see live music', place: 'the basement',
@@ -90,19 +84,19 @@ function Card({ card }: { card: CollageCard }) {
       className={card.desktopOnly ? 'absolute hidden md:block' : 'absolute'}
       style={card.style}
     >
-      {/* Drift lives on its own layer so it never fights the tilt transform. */}
+      {/* Drift lives on its own layer so it doesn't fight the tilt transform. */}
       <div
         style={{
           animation: `drift ${card.duration}s ease-in-out infinite`,
           animationDelay: `${card.delay}s`,
         }}
       >
-        <div className="bg-card/90 border-border w-[15rem] rounded-2xl border p-4 shadow-xl backdrop-blur-sm">
-          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm leading-snug">
+        <div className="bg-card/90 border-border w-44 rounded-2xl border p-3 shadow-xl backdrop-blur-sm md:w-[15rem] md:p-4">
+          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs leading-snug md:text-sm">
             <img
               src={avatarUrl(card.user)}
               alt=""
-              className="bg-muted mr-0.5 size-6 rounded-full"
+              className="bg-muted mr-0.5 size-5 rounded-full md:size-6"
             />
             <span className="text-primary font-medium">@{card.user}</span>
             <span className="text-muted-foreground">wants to</span>
@@ -119,7 +113,6 @@ function Card({ card }: { card: CollageCard }) {
   );
 }
 
-/** Decorative backdrop: sample activity cards drifting around the viewport. */
 export function ActivityCollage() {
   return (
     <div

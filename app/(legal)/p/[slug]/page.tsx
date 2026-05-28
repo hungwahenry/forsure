@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
     const page = await getPublicPage(slug);
-    return { title: `${page.title} — forsure` };
+    return { title: `${page.title} · forsure` };
   } catch {
     return { title: 'Not found' };
   }

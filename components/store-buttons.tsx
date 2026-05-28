@@ -21,7 +21,7 @@ export function AppStoreButton() {
         height={48}
         priority
         draggable={false}
-        className="h-12 w-auto select-none"
+        className="h-10 w-auto select-none"
       />
     </a>
   );
@@ -43,7 +43,7 @@ export function PlayStoreButton() {
         height={48}
         priority
         draggable={false}
-        className="h-[58px] w-auto select-none"
+        className="h-14 w-auto select-none"
       />
     </a>
   );
@@ -51,7 +51,7 @@ export function PlayStoreButton() {
 
 export function StoreButtons() {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3">
+    <div className="flex flex-wrap items-center gap-3">
       <AppStoreButton />
       <PlayStoreButton />
     </div>

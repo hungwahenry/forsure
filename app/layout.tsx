@@ -6,16 +6,16 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { env } from "@/lib/env";
 
-const TITLE = "forsure — find someone to do anything";
+const TITLE = "forsure · find someone to do anything";
 const DESCRIPTION =
-  "forsure is a local hangouts app — find someone to grab coffee, play tennis, or do anything, nearby and right now.";
+  "forsure is a local hangouts app. find someone to grab coffee, play tennis, or do anything, nearby and right now.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.SITE_URL),
   applicationName: "forsure",
   title: {
     default: TITLE,
-    template: "%s — forsure",
+    template: "%s · forsure",
   },
   description: DESCRIPTION,
   openGraph: {
